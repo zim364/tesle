@@ -91,8 +91,7 @@ function ApplyForm() {
       filename: "Tesla_" + model.name.replace(/\s+/g, "_") + "_Order.pdf",
       image: { type: "jpeg", quality: 1 },
       html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-      pagebreak: { mode: "avoid-all" }
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
     }).from(element).save();
   };
 
