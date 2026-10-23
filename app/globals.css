@@ -1,49 +1,43 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark Theme (Roadster) */
+  --color-dark-bg: #000000;
+  --color-dark-surface: #111418;
+  --color-dark-text-primary: #ffffff;
+  --color-dark-text-secondary: #a2a3a5;
+  --color-dark-border: rgba(255, 255, 255, 0.1);
+  
+  /* Light Theme (Models) */
+  --color-light-bg: #ffffff;
+  --color-light-surface: #f4f4f4;
+  --color-light-text-primary: #171a20;
+  --color-light-text-secondary: #5c5e62;
+  --color-light-border: #e0e0e0;
+
+  /* Universal Accents */
+  --color-accent: #3e6ae1;
+  --color-gold: rgba(212, 175, 55, 0.8);
+  --color-gold-solid: rgba(212, 175, 55, 1);
+
+  /* Typography */
+  --font-display: "Universal Sans Display", -apple-system, sans-serif;
+  --font-body: "Universal Sans Text", -apple-system, sans-serif;
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.15em;
+
+  /* Motion */
+  --motion-base: 0.33s;
+  --motion-ease: cubic-bezier(0.33, 1, 0.68, 1);
+  
+  /* Spacing & Radii */
+  --radius-sm: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; background: #fff; color: #171a20; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 500; letter-spacing: var(--tracking-tight); }
+a { text-decoration: none; color: inherit; }
+/* ─── MOBILE GLOBAL FIXES ─── */
+@media (max-width: 768px) {
+  body { font-size: 14px; overflow-x: hidden; }
+  h1, h2, h3, h4 { word-break: break-word; }
 }

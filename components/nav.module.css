@@ -1,0 +1,89 @@
+.nav {
+  position: fixed; 
+  top: 48px; /* Pushes navbar below the promo banner */
+  left: 0; right: 0; z-index: 100;
+  height: 64px;
+  display: flex; align-items: center;
+  background: transparent;
+  transition: background 0.33s var(--motion-ease), backdrop-filter 0.33s var(--motion-ease), top 0.33s ease;
+}
+
+/* When scrolling, stick to top and add frosted glass */
+.scrolled {
+  top: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.inner {
+  width: 100%; max-width: 1400px;
+  margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+/* Text is white by default */
+.brand, .link, .iconBtn { color: #ffffff; transition: color 0.3s ease; }
+
+/* Text turns black on scroll */
+.scrolled .brand, .scrolled .link, .scrolled .iconBtn { color: #171a20; }
+
+.teslaLogo { width: 120px; height: auto; }
+
+.centerLinks {
+  display: flex; gap: 4px;
+}
+
+.link {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.3s ease;
+}
+
+.link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.scrolled .link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.rightIcons {
+  display: flex; gap: 8px;
+}
+
+.iconBtn {
+  background: transparent; border: none;
+  width: 40px; height: 40px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.3s ease;
+}
+
+.iconBtn svg { width: 20px; height: 20px; }
+
+.iconBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.scrolled .iconBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 1024px) {
+  .centerLinks { display: none; }
+}
+@media (max-width: 600px) {
+  .rightIcons { display: none; }
+  .inner { padding: 0 24px; }
+}
+/* ─── MOBILE NAV FIXES ─── */
+@media (max-width: 768px) {
+  .nav { height: 56px; }
+  .inner { padding: 0 16px; }
+  .teslaLogo { width: 90px; }
+  .links { display: none; } /* Hide center links on mobile */
+  .rightIcons { display: none; } /* Hide utility icons on mobile */
+}

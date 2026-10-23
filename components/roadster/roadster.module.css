@@ -1,0 +1,342 @@
+/* Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â
+   ROADSTER Ã¢â‚¬â€ Final Premium Styling
+   Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
+
+.page {
+  background: #000;
+  color: #fff;
+  font-family: "Universal Sans Text", -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  z-index: 0;
+}
+
+.eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #5c5e62; margin-bottom: 16px;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Typography Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.page h2 {
+  font-family: "Universal Sans Display", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 500; line-height: 1.05; letter-spacing: -0.03em;
+  margin-bottom: 24px; 
+  color: #ffffff;
+  width: fit-content; 
+  display: block;
+}
+
+.page h2::after {
+  content: "";
+  display: block;
+  width: 100px; 
+  min-width: 250px;
+  height: 1px;  
+  background-color: rgba(212, 175, 55, 0.8); 
+  margin-top: 16px; 
+}
+
+.page p {
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.6; 
+  color: #a2a3a5;
+  font-weight: 400;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 01. HERO Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.hero {
+  position: relative; 
+  height: 100vh; 
+  min-height: 700px;
+  overflow: hidden;
+}
+
+/* SAFELY SHIFTS THE CAR TO THE RIGHT */
+.hero .bg {
+  background-position: 60% center; 
+  filter: brightness(1.1) contrast(1.1); 
+}
+
+.heroImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  transform: scale(1.1); 
+  z-index: 0;
+}
+
+.heroOverlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 70%);
+  z-index: 1;
+}
+
+.heroContent { 
+  position: absolute;
+  top: 32%;
+  left: max(8%, 40px); 
+  z-index: 2; 
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ THE LOGO IMAGE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.logoImg {
+  width: 100%;
+  max-width: 480px; 
+  height: auto;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.8));
+  display: block;
+}
+
+.heroActions { 
+  display: flex; 
+  gap: 16px; 
+  justify-content: flex-start;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ BUTTON STYLE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.btnPrimary, .btnOutline {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  padding: 14px 36px; 
+  font-size: 13px; 
+  font-weight: 500;
+  letter-spacing: 0.1em; 
+  text-decoration: none; 
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.btnPrimary {
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #ffffff;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+}
+.btnPrimary:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ BOTTOM ICONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.heroIcons {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 48px;
+  z-index: 2;
+}
+
+.iconBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-right: 48px;
+  border-right: 1px solid rgba(212, 175, 55, 0.6);
+}
+
+.iconBox:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  color: #ffffff;
+}
+
+.iconBox span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 02/04/05. SPLIT SECTIONS Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.splitSection {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 100vh; background: #000;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.splitSection.reverse { direction: rtl; }
+.splitSection.reverse > * { direction: ltr; }
+
+.splitText {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 10% 12%; max-width: 700px; margin: 0 auto;
+}
+.splitImage { position: relative; overflow: hidden; }
+
+.imageFadeLeft {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, #000 0%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0) 45%);
+}
+.imageFadeRight {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(-90deg, #000 0%, rgba(0,0,0,0.9) 25%, rgba(0,0,0,0) 45%);
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 03. GALLERY (Grid) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.gallerySection {
+  padding: 120px max(5%, 40px); background: #050505;
+}
+.galleryHeader { max-width: 1200px; margin: 0 auto 64px; }
+.galleryGrid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 24px; max-width: 1200px; margin: 0 auto;
+}
+.gridItem {
+  position: relative; border-radius: 8px; overflow: hidden;
+  background-size: cover; background-position: center;
+  aspect-ratio: 16/9;
+}
+.gridItem:nth-child(1) { grid-column: span 4; }
+.gridItem:nth-child(2) { grid-column: span 2; }
+.gridItem:nth-child(3) { grid-column: span 2; }
+.gridItem:nth-child(4) { grid-column: span 4; }
+.gridItem:nth-child(5) { grid-column: span 3; }
+.gridItem:nth-child(6) { grid-column: span 3; }
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 06. AUGMENTS (Specs) Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.specsSection {
+  position: relative; padding: 140px max(5%, 40px);
+  background: #000; overflow: hidden;
+}
+.specsBg {
+  position: absolute; inset: 0; opacity: 0.15;
+  background-size: cover; background-position: center;
+  filter: blur(4px); z-index: 0;
+}
+.specsContent { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+.specsHeader { text-align: center; margin-bottom: 80px; }
+.specsDesc { max-width: 700px; margin: 0 auto; font-size: 16px; }
+
+.tierGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.tierCard {
+  background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 16px;
+  padding: 48px; transition: transform 0.3s, border-color 0.3s;
+}
+.tierCard:hover { transform: translateY(-4px); border-color: rgba(252, 211, 77, 0.4); }
+.tierCard h3 { font-size: 32px; font-weight: 500; margin-bottom: 12px; color: #ffffff; }
+
+.tierBadge {
+  display: inline-block; padding: 6px 12px; border-radius: 4px;
+  background: transparent; color: #fcd34d;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.tierText { font-size: 15px; line-height: 1.7; color: #a2a3a5; }
+.tierNote { font-size: 12px; font-style: italic; color: #5c5e62; margin-top: 16px; }
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 07. END IMAGE Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.endImageSection {
+  position: relative; height: 80vh; min-height: 600px;
+  background: #000;
+}
+.imageFadeBottom {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 60%, #000 100%);
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ 08. END TEXT Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+.endTextSection {
+  background: #000;
+  padding: 0 24px 60px;
+  display: flex; flex-direction: column; align-items: center; gap: 48px;
+}
+
+.btnOutline {
+  padding: 16px 48px;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #ffffff;
+  background: transparent;
+}
+.btnOutline:hover {
+  background: #ffffff; color: #000000; border-color: #ffffff;
+}
+
+.legalText { max-width: 800px; display: flex; flex-direction: column; gap: 16px; }
+.legalText p { 
+  font-size: 10px; 
+  color: #5c5e62;
+  line-height: 1.5; text-align: center; margin: 0; 
+}
+.footer { width: 100%; text-align: center; font-size: 10px; color: #5c5e62; margin-top: 40px; opacity: 0.7; }
+
+/* Bright utility class for images */
+.bright {
+  filter: brightness(1.3) contrast(1.05) !important;
+}
+
+/* Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ Mobile Ã¢â€â‚¬Ã¢â€â‚¬Ã¢â€â‚¬ */
+@media (max-width: 900px) {
+  .heroContent { top: 40%; left: 6%; transform: translateY(-50%); }
+  .logoImg { max-width: 320px; }
+  
+  .heroIcons { flex-direction: column; gap: 24px; bottom: 20px; align-items: center; }
+  .iconBox { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.6); padding-right: 0; padding-bottom: 24px; width: 100%; }
+  .iconBox:last-child { border-bottom: none; }
+  
+  .splitSection { grid-template-columns: 1fr; }
+  .splitSection.reverse { direction: ltr; }
+  .splitText { padding: 60px 24px; text-align: center; }
+  .splitImage { height: 50vh; }
+  .imageFadeLeft, .imageFadeRight { background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%); }
+  
+  .galleryGrid { display: flex; flex-direction: column; }
+  .gridItem { aspect-ratio: 16/9; }
+  .tierGrid { grid-template-columns: 1fr; }
+  .tierCard { padding: 32px; }
+  .endImageSection { height: 60vh; min-height: 400px; }
+  .endTextSection { padding-top: 20px; }
+  .page h2::after { margin: 16px auto 0 auto; }
+}
+/* ─── MOBILE ROADSTER FIXES ─── */
+@media (max-width: 768px) {
+  .hero { padding-bottom: 40px; }
+  .heroContent { top: 40%; left: 6%; transform: translateY(-50%); }
+  .logoImg { max-width: 240px; }
+  .heroIcons { flex-direction: column; gap: 16px; bottom: 20px; align-items: center; }
+  .iconBox { border-right: none; border-bottom: 1px solid rgba(212, 175, 55, 0.6); padding-right: 0; padding-bottom: 16px; width: 100%; }
+  .iconBox:last-child { border-bottom: none; }
+  
+  .splitSection, .splitSectionReverse { grid-template-columns: 1fr; direction: ltr; }
+  .splitImage { height: 40vh; }
+  .imageFadeLeft, .imageFadeRight { background: linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%); }
+  .splitText { padding: 40px 24px; text-align: center; }
+  .splitText h2::after { margin: 16px auto 0; }
+  
+  .gallerySection { padding: 60px 24px; }
+  .galleryGrid { display: flex; flex-direction: column; }
+  .gridItem { aspect-ratio: 16/9; }
+  
+  .tierGrid { grid-template-columns: 1fr; }
+  .tierCard { padding: 24px; }
+  .endImageSection { height: 50vh; }
+  .endTextSection { padding-top: 24px; }
+}

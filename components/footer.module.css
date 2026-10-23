@@ -1,0 +1,14 @@
+﻿.footer {
+  border-top: 1px solid var(--color-off-white);
+  padding: var(--space-6) 0;
+  margin-top: var(--space-9);
+}
+.inner {
+  max-width: var(--container-max); margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: flex; flex-direction: column; gap: var(--space-2);
+  font-size: var(--text-caption); color: var(--color-steel);
+  line-height: var(--leading-caption);
+}
+.disclaimer { color: var(--color-charcoal); }
+.credit { color: var(--color-subtle); }

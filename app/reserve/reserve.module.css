@@ -1,0 +1,104 @@
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   ROADSTER RESERVATION â€” DARK & GOLD
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+.page { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; background: #050505; color: #fff; font-family: var(--font-body); }
+
+/* LEFT VISUAL */
+.visualSection { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.bgImage { position: absolute; inset: 0; background: url('/roadster/Roadster-01-Hero-Desktop.avif') center/cover no-repeat; animation: slowZoom 20s ease-out forwards; }
+@keyframes slowZoom { from { transform: scale(1.05); } to { transform: scale(1); } }
+.overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%); }
+.visualContent { position: absolute; bottom: 0; left: 0; padding: 64px; z-index: 2; }
+.backLink { color: #a2a3a5; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.backLink:hover { color: #fff; }
+.title { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 500; letter-spacing: -0.03em; margin: 24px 0 8px; color: #fff; }
+.subtitle { font-size: 18px; color: #a2a3a5; max-width: 400px; }
+
+/* RIGHT FORM */
+.formSection { padding: 80px 64px; display: flex; justify-content: center; align-items: center; background: #050505; }
+.formContainer { width: 100%; max-width: 500px; }
+.header { margin-bottom: 40px; }
+.eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #d4af37; margin-bottom: 8px; display: block; }
+.heading { font-family: var(--font-display); font-size: 32px; font-weight: 500; }
+
+/* TIER SELECTOR */
+.tierGrid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+.tierCard { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px; cursor: pointer; transition: all 0.3s ease; }
+.tierCard:hover { background: rgba(255,255,255,0.06); }
+.activeTier { border-color: #d4af37; background: rgba(212, 175, 55, 0.05); box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); }
+.disabledTier { opacity: 0.4; cursor: not-allowed; }
+.tierHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.tierName { font-family: var(--font-display); font-size: 20px; font-weight: 500; }
+.tierPrice { font-size: 13px; font-weight: 500; color: #d4af37; }
+.tierDesc { font-size: 14px; color: #a2a3a5; }
+
+/* INPUTS */
+.form { display: flex; flex-direction: column; gap: 24px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.inputGroup { display: flex; flex-direction: column; gap: 8px; }
+.inputGroup label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #8e8e8e; }
+.inputGroup input { padding: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff; font-family: var(--font-body); font-size: 15px; outline: none; transition: all 0.3s; }
+.inputGroup input::placeholder { color: #5c5e62; }
+.inputGroup input:focus { border-color: #d4af37; background: rgba(255,255,255,0.06); }
+
+/* TOTAL & BUTTONS */
+.totalBox { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 16px; }
+.totalBox span { font-size: 16px; color: #a2a3a5; }
+.totalAmount { font-family: var(--font-display); font-size: 28px; font-weight: 500; color: #fff; }
+
+.btnGold { padding: 18px; background: #d4af37; color: #000; border: none; border-radius: 6px; font-family: var(--font-body); font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; display: block; }
+.btnGold:hover { background: #e6c45e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2); }
+
+.disclaimer { font-size: 11px; color: #5c5e62; line-height: 1.5; text-align: center; margin-top: 16px; }
+
+/* PROCESSING SCREEN */
+.processingScreen { min-height: 100vh; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; }
+.loader { width: 48px; height: 48px; border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid #d4af37; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 24px; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+.processingTitle { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-bottom: 8px; }
+.processingDesc { color: #a2a3a5; font-size: 14px; }
+
+/* CERTIFICATE SCREEN */
+.certificatePage { min-height: 100vh; background: #0a0a0a; padding: 80px 24px; display: flex; flex-direction: column; align-items: center; }
+.certificateWrapper { width: 100%; max-width: 700px; }
+.certificate { background: #050505; border: 1px solid rgba(212, 175, 55, 0.3); padding: 64px; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); margin-bottom: 32px; }
+.certHeader { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 24px; margin-bottom: 48px; }
+.certLogo { height: 40px; }
+.certRef { font-family: monospace; font-size: 14px; color: #d4af37; }
+.certBody { text-align: center; }
+.certEyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #d4af37; margin-bottom: 16px; }
+.certTitle { font-family: var(--font-display); font-size: 48px; font-weight: 500; color: #fff; margin-bottom: 48px; }
+.certDetails { text-align: left; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 24px; margin-bottom: 48px; }
+.certRow { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
+.certRow:last-child { border-bottom: none; }
+.certRow span:first-child { color: #8e8e8e; }
+.certRow span:last-child { color: #fff; font-weight: 500; }
+.certLegal { font-size: 12px; color: #5c5e62; line-height: 1.6; text-align: center; }
+.certActions { display: flex; gap: 16px; justify-content: center; }
+.btnOutline { padding: 18px 32px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-family: var(--font-body); font-size: 16px; font-weight: 500; cursor: pointer; text-decoration: none; text-align: center; transition: all 0.3s; }
+.btnOutline:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
+
+/* MOBILE */
+@media (max-width: 1024px) {
+  .page { grid-template-columns: 1fr; }
+  .visualSection { height: 50vh; }
+  .visualContent { padding: 32px; }
+  .formSection { padding: 48px 24px; }
+  .row { grid-template-columns: 1fr; gap: 0; }
+  .certificate { padding: 32px 24px; }
+  .certActions { flex-direction: column; }
+}
+/* ─── MOBILE RESERVE FIXES ─── */
+@media (max-width: 1024px) {
+  .page { grid-template-columns: 1fr; }
+  .visualSection { height: 50vh; position: relative; }
+  .visualContent { padding: 32px 24px; }
+  .title { font-size: 36px; }
+  .subtitle { font-size: 16px; }
+  .formSection { padding: 40px 24px; }
+  .row { grid-template-columns: 1fr; gap: 0; }
+  .certificate { padding: 32px 24px; }
+  .certActions { flex-direction: column; gap: 12px; }
+  .btnGold, .btnOutline { width: 100%; }
+}
