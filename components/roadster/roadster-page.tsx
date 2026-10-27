@@ -1,13 +1,25 @@
+"use client";
+
+import { useState, useRef } from "react";
 import Link from "next/link";
 import styles from "./roadster.module.css";
 
 const IMG = "/roadster";
 
 export function RoadsterPage() {
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  const scrollGallery = (direction: "left" | "right") => {
+    if (galleryRef.current) {
+      const scrollAmount = direction === "left" ? -galleryRef.current.clientWidth : galleryRef.current.clientWidth;
+      galleryRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={styles.page}>
 
-      {/* 01 â€” HERO */}
+      {/* 01 - HERO */}
       <section className={styles.hero}>
         <img 
           src={`${IMG}/Roadster-01-Hero-Desktop.avif`} 
@@ -77,10 +89,10 @@ export function RoadsterPage() {
         </div>
       </section>
 
-      {/* 02 â€” PILOT */}
+      {/* 02 - PILOT */}
       <section className={styles.splitSection}>
         <div className={styles.splitText}>
-          <p className={styles.eyebrow}>02 â€” Pilot</p>
+          <p className={styles.eyebrow}>02 - Pilot</p>
           <h2>A True Pilot&rsquo;s Car</h2>
           <p>Roadster can perform at levels unlike any other production car. It goes beyond Plaid to unlock an entirely new dimension of driving. It challenges the limits of design, engineering and physics to deliver an expertly crafted extra-terrestrial vehicle.</p>
         </div>
@@ -90,54 +102,61 @@ export function RoadsterPage() {
         </div>
       </section>
 
-      {/* 03 â€” GALLERY (Grid) */}
+      {/* 03 - GALLERY */}
       <section className={styles.gallerySection}>
         <div className={styles.galleryHeader}>
-          <p className={styles.eyebrow}>03 â€” Design</p>
+          <p className={styles.eyebrow}>03 - Design</p>
           <h2>Form follows function.</h2>
         </div>
-        <div className={styles.galleryGrid}>
-          <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-1-Desktop.avif)` }} />
-          <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-2-Desktop.avif)` }} />
-          <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-3-Desktop.avif)` }} />
-          <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-4-Desktop.avif)` }} />
-          <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-5-Desktop.avif)` }} />
-          <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-06-Gravity-Desktop.avif)` }} />
+        
+        <div className={styles.galleryWrapper}>
+          <button className={`${styles.galleryArrow} ${styles.galleryArrowLeft}`} onClick={() => scrollGallery("left")}>&#10094;</button>
+          
+          <div className={styles.galleryGrid} ref={galleryRef}>
+            <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-1-Desktop.avif)` }} />
+            <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-2-Desktop.avif)` }} />
+            <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-3-Desktop.avif)` }} />
+            <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-4-Desktop.avif)` }} />
+            <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-03-Carousel-Slide-5-Desktop.avif)` }} />
+            <div className={styles.gridItem} style={{ backgroundImage: `url(${IMG}/Roadster-06-Gravity-Desktop.avif)` }} />
+          </div>
+          
+          <button className={`${styles.galleryArrow} ${styles.galleryArrowRight}`} onClick={() => scrollGallery("right")}>&#10095;</button>
         </div>
       </section>
 
-      {/* 04 â€” WORLD */}
+      {/* 04 - WORLD */}
       <section className={`${styles.splitSection} ${styles.reverse}`}>
         <div className={styles.splitImage}>
           <div className={`${styles.bg} ${styles.bright}`} style={{ backgroundImage: `url(${IMG}/Roadster-04-World-Desktop.avif)`, backgroundPosition: "left center" }} />
           <div className={styles.imageFadeRight} />
         </div>
         <div className={styles.splitText}>
-          <p className={styles.eyebrow}>04 â€” World</p>
+          <p className={styles.eyebrow}>04 - World</p>
           <h2>Out of This World</h2>
           <p>We already put Roadster in a rocket. Now we put a rocket in Roadster. We created a vehicle capable of next-level performance. Additional SpaceX components can transform that road performance into a truly revolutionary experience.</p>
         </div>
       </section>
 
-      {/* 05 â€” GRAPH */}
+      {/* 05 - GRAPH */}
       <section className={styles.splitSection}>
         <div className={styles.splitText}>
-          <p className={styles.eyebrow}>05 â€” Physics</p>
+          <p className={styles.eyebrow}>05 - Physics</p>
           <h2>Beyond The Limits of Physics</h2>
-          <p>Our multi-mode fan and ground sealing system acts as a downforce generator, pulling air out from beneath the vehicle. This provides enough suction to hold the vehicle upside down, even when stationary. Powered fans and active wings maximize traction and cornering speeds in all conditions, achieving massive downforce at zero speed.</p>
+          <p>Our multi-mode fan and ground sealing system acts as a downforce generator, pulling air out from beneath the vehicle. This provides enough suction to hold the vehicle upside down, even when stationary.</p>
         </div>
         <div className={styles.splitImage}>
-          <div className={styles.bg} style={{ backgroundImage: `url(${IMG}/Roadster-05-Graph-Desktop.avif)`, backgroundPosition: "right center" }} />
+          <div className={`${styles.bg} ${styles.bright}`} style={{ backgroundImage: `url(${IMG}/Roadster-05-Graph-Desktop.avif)`, backgroundPosition: "right center" }} />
           <div className={styles.imageFadeLeft} />
         </div>
       </section>
 
-      {/* 06 â€” AUGMENTS */}
+      {/* 06 - AUGMENTS */}
       <section className={styles.specsSection} id="specs">
         <div className={styles.specsBg} style={{ backgroundImage: `url(${IMG}/Roadster-07-Augments-Desktop.avif)` }} />
         <div className={styles.specsContent}>
           <div className={styles.specsHeader}>
-            <p className={styles.eyebrow}>06 â€” Augments</p>
+            <p className={styles.eyebrow}>06 - Augments</p>
             <h2>Performance by Reservation</h2>
             <p className={styles.specsDesc}>Road ready with seating for two. Features active aerodynamics and a multi-mode suction system that maximizes downforce for next-level performance on and off the track.</p>
           </div>
@@ -157,13 +176,13 @@ export function RoadsterPage() {
         </div>
       </section>
 
-      {/* 07 â€” END IMAGE */}
+      {/* 07 - END IMAGE */}
       <section className={styles.endImageSection}>
         <div className={styles.bg} style={{ backgroundImage: `url(${IMG}/Roadster-08-End-Desktop.avif)` }} />
         <div className={styles.imageFadeBottom} />
       </section>
 
-      {/* 08 â€” END TEXT */}
+      {/* 08 - END TEXT */}
       <section className={styles.endTextSection}>
         <Link href="/reserve" className={styles.btnOutline}>RESERVE NOW</Link>
         <div className={styles.legalText}>
@@ -171,10 +190,9 @@ export function RoadsterPage() {
           <p>The features and specifications indicated on this page are reflective of our Thrust augment only and are available as an optional upgrade.</p>
         </div>
         <div className={styles.footer}>
-          Tesla Â© 2026 &nbsp;&nbsp;&nbsp; Privacy & Legal
+          Tesla (c) 2026 &nbsp;&nbsp;&nbsp; Privacy & Legal
         </div>
       </section>
-
     </div>
   );
 }

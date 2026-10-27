@@ -1,7 +1,3 @@
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   ROADSTER RESERVATION â€” DARK & GOLD
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-
 .page { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; background: #050505; color: #fff; font-family: var(--font-body); }
 
 /* LEFT VISUAL */
@@ -10,9 +6,9 @@
 @keyframes slowZoom { from { transform: scale(1.05); } to { transform: scale(1); } }
 .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%); }
 .visualContent { position: absolute; bottom: 0; left: 0; padding: 64px; z-index: 2; }
-.backLink { color: #a2a3a5; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.backLink { color: #a2a3a5; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; display: inline-block; margin-bottom: 24px; }
 .backLink:hover { color: #fff; }
-.title { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 500; letter-spacing: -0.03em; margin: 24px 0 8px; color: #fff; }
+.title { font-family: var(--font-display); font-size: clamp(48px, 6vw, 80px); font-weight: 500; letter-spacing: -0.03em; margin-bottom: 8px; color: #fff; }
 .subtitle { font-size: 18px; color: #a2a3a5; max-width: 400px; }
 
 /* RIGHT FORM */
@@ -50,55 +46,105 @@
 .btnGold { padding: 18px; background: #d4af37; color: #000; border: none; border-radius: 6px; font-family: var(--font-body); font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-align: center; text-decoration: none; display: block; }
 .btnGold:hover { background: #e6c45e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2); }
 
+.btnGhost { padding: 18px 24px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-family: var(--font-body); font-size: 15px; font-weight: 500; cursor: pointer; transition: all 0.3s; }
+.btnGhost:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+
 .disclaimer { font-size: 11px; color: #5c5e62; line-height: 1.5; text-align: center; margin-top: 16px; }
 
 /* PROCESSING SCREEN */
 .processingScreen { min-height: 100vh; background: #050505; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; }
-.loader { width: 48px; height: 48px; border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid #d4af37; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 24px; }
-@keyframes spin { 100% { transform: rotate(360deg); } }
-.processingTitle { font-family: var(--font-display); font-size: 24px; font-weight: 500; margin-bottom: 8px; }
-.processingDesc { color: #a2a3a5; font-size: 14px; }
+.teslaLoader { width: 140px; height: auto; color: #ffffff; animation: teslaPulse 1.5s ease-in-out infinite; margin-bottom: 24px; }
+@keyframes teslaPulse { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+.processingTitle { font-family: var(--font-display); font-size: 24px; font-weight: 500; }
 
-/* CERTIFICATE SCREEN */
-.certificatePage { min-height: 100vh; background: #0a0a0a; padding: 80px 24px; display: flex; flex-direction: column; align-items: center; }
-.certificateWrapper { width: 100%; max-width: 700px; }
-.certificate { background: #050505; border: 1px solid rgba(212, 175, 55, 0.3); padding: 64px; border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,0.8); margin-bottom: 32px; }
-.certHeader { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 24px; margin-bottom: 48px; }
-.certLogo { height: 40px; }
-.certRef { font-family: monospace; font-size: 14px; color: #d4af37; }
-.certBody { text-align: center; }
-.certEyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #d4af37; margin-bottom: 16px; }
-.certTitle { font-family: var(--font-display); font-size: 48px; font-weight: 500; color: #fff; margin-bottom: 48px; }
-.certDetails { text-align: left; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 24px; margin-bottom: 48px; }
-.certRow { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
-.certRow:last-child { border-bottom: none; }
-.certRow span:first-child { color: #8e8e8e; }
-.certRow span:last-child { color: #fff; font-weight: 500; }
-.certLegal { font-size: 12px; color: #5c5e62; line-height: 1.6; text-align: center; }
-.certActions { display: flex; gap: 16px; justify-content: center; }
-.btnOutline { padding: 18px 32px; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-family: var(--font-body); font-size: 16px; font-weight: 500; cursor: pointer; text-decoration: none; text-align: center; transition: all 0.3s; }
-.btnOutline:hover { background: rgba(255,255,255,0.05); border-color: #fff; }
+/* OPTIONS PAGE */
+.optionsPage { min-height: 100vh; background: #050505; color: #fff; padding: 80px 24px; font-family: var(--font-body); }
+.optionsContainer { max-width: 800px; margin: 0 auto; }
+.optionsHeading { font-family: var(--font-display); font-size: 32px; font-weight: 500; margin-bottom: 8px; }
+.optionsSubheading { font-size: 14px; color: #a2a3a5; margin-bottom: 40px; line-height: 1.6; }
+.optionGroup { margin-bottom: 32px; }
+.optionGroupTitle { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #8e8e8e; margin-bottom: 12px; }
+.optionList { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.optionItem { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; cursor: pointer; transition: all 0.25s ease; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.optionItem:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); }
+.activeOption { border-color: #d4af37; background: rgba(212, 175, 55, 0.05); box-shadow: 0 0 16px rgba(212, 175, 55, 0.12); }
+.optionLeft { display: flex; align-items: center; gap: 10px; }
+.optionSwatch { width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); flex-shrink: 0; }
+.optionName { font-size: 14px; font-weight: 500; }
+.optionPrice { font-size: 12px; color: #d4af37; font-weight: 500; white-space: nowrap; }
+.optionsSummary { margin-top: 40px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+.summaryRow { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; color: #a2a3a5; }
+.summaryRow strong { color: #fff; font-weight: 500; }
+.summaryGrand { font-family: var(--font-display); font-size: 22px; color: #fff; padding-top: 16px; margin-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); }
+.optionsActions { margin-top: 32px; display: flex; gap: 12px; }
+.optionsActions .btnGold { flex: 1; }
 
-/* MOBILE */
-@media (max-width: 1024px) {
-  .page { grid-template-columns: 1fr; }
-  .visualSection { height: 50vh; }
-  .visualContent { padding: 32px; }
-  .formSection { padding: 48px 24px; }
-  .row { grid-template-columns: 1fr; gap: 0; }
-  .certificate { padding: 32px 24px; }
-  .certActions { flex-direction: column; }
-}
-/* ─── MOBILE RESERVE FIXES ─── */
-@media (max-width: 1024px) {
+/* RECEIPT SUCCESS PAGE */
+.receiptPage { min-height: 100vh; background: #f4f4f4; padding: 80px 24px; display: flex; flex-direction: column; align-items: center; font-family: var(--font-body); }
+.receiptCard { background: #ffffff; width: 100%; max-width: 800px; padding: 64px; border-radius: 4px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); color: #171a20; }
+.receiptHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 64px; }
+.receiptLogo { width: 140px; height: auto; }
+.receiptHeaderRight { font-size: 14px; font-weight: 500; color: #5c5e62; }
+.receiptTitleArea { text-align: center; margin-bottom: 48px; }
+.receiptTitleArea h1 { font-family: var(--font-display); font-size: 40px; font-weight: 500; margin-bottom: 8px; }
+.receiptTitleArea p { font-size: 18px; color: #5c5e62; }
+
+.receiptImageWrapper { width: 100%; height: 320px; display: flex; align-items: center; justify-content: center; margin-bottom: 48px; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.receiptImageWrapper img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.receiptDivider { height: 1px; background: #e0e0e0; margin: 48px 0; }
+.receiptGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.receiptCol { display: flex; flex-direction: column; }
+.receiptLabel { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #5c5e62; margin-bottom: 8px; }
+.receiptVariant { font-family: var(--font-display); font-size: 28px; font-weight: 500; margin-bottom: 4px; }
+.receiptSubVariant { font-size: 14px; font-weight: 500; color: #3e6ae1; margin-bottom: 16px; }
+.receiptDesc { font-size: 14px; color: #5c5e62; line-height: 1.6; margin-bottom: 16px; }
+.receiptLink { font-size: 14px; font-weight: 600; text-decoration: underline; color: #171a20; }
+.receiptOrderNum { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: #171a20; }
+.receiptPaymentRow { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 8px; }
+.receiptAmount { display: block; font-size: 14px; font-weight: 600; color: #171a20; margin-bottom: 4px; }
+.receiptDate { display: block; font-size: 12px; color: #5c5e62; }
+.receiptStatus { font-size: 13px; font-weight: 500; color: #22c55e; }
+.receiptStatusPending { font-size: 13px; font-weight: 500; color: #d4af37; }
+
+/* RECEIPT CONFIG LIST + TOTALS */
+.configList { list-style: none; padding: 0; margin: 12px 0 0 0; }
+.configItem { display: flex; justify-content: space-between; padding: 10px 0; font-size: 14px; color: #5c5e62; border-bottom: 1px solid #f0f0f0; }
+.configItem:last-child { border-bottom: none; }
+.configItem strong { color: #171a20; font-weight: 500; }
+.configValue { color: #171a20; font-weight: 500; }
+.totalsBlock { margin-top: 8px; }
+.totalRow { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; color: #5c5e62; }
+.grandTotalRow { padding-top: 16px; margin-top: 8px; border-top: 1px solid #e0e0e0; font-size: 16px; font-weight: 600; color: #171a20; }
+.noticeBox { margin-top: 16px; padding: 12px 16px; background: #f9f7f0; border-left: 3px solid #d4af37; font-size: 12px; color: #5c5e62; line-height: 1.6; }
+
+.receiptFooterArea { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.receiptFooterLeft { display: flex; gap: 16px; max-width: 500px; }
+.receiptFooterLeft p { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+.receiptSmallText { font-size: 11px; color: #5c5e62; line-height: 1.5; }
+.viewAccountBtn { padding: 12px 24px; border: 1px solid #d0d0d0; background: transparent; border-radius: 4px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.receiptFooterNav { text-align: center; margin-top: 64px; }
+.receiptFooterNav p { font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 0.2em; margin-bottom: 16px; }
+.footerLinks { display: flex; justify-content: center; gap: 16px; font-size: 11px; color: #5c5e62; flex-wrap: wrap; }
+.footerLinks a { text-decoration: none; transition: color 0.2s; color: #5c5e62; }
+.footerLinks a:hover { color: #171a20; text-decoration: underline; }
+.receiptActions { display: flex; gap: 16px; margin-top: 32px; }
+.downloadBtn { padding: 16px 32px; background: #171a20; color: #ffffff; border: none; border-radius: 4px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+.downloadBtn:hover { background: #3e6ae1; }
+.homeBtn { padding: 16px 32px; background: #ffffff; color: #171a20; border: 1px solid #d0d0d0; border-radius: 4px; font-size: 14px; font-weight: 500; text-decoration: none; text-align: center; }
+.homeBtn:hover { background: #f4f4f4; }
+
+@media (max-width: 768px) {
   .page { grid-template-columns: 1fr; }
   .visualSection { height: 50vh; position: relative; }
-  .visualContent { padding: 32px 24px; }
-  .title { font-size: 36px; }
-  .subtitle { font-size: 16px; }
   .formSection { padding: 40px 24px; }
-  .row { grid-template-columns: 1fr; gap: 0; }
-  .certificate { padding: 32px 24px; }
-  .certActions { flex-direction: column; gap: 12px; }
-  .btnGold, .btnOutline { width: 100%; }
+  .row { grid-template-columns: 1fr; }
+  .optionsPage { padding: 48px 16px; }
+  .optionsActions { flex-direction: column; }
+  .receiptCard { padding: 32px 24px; }
+  .receiptGrid { grid-template-columns: 1fr; gap: 32px; }
+  .receiptImageWrapper { height: 200px; }
+  .receiptFooterArea { flex-direction: column; }
+  .receiptActions { flex-direction: column; width: 100%; }
+  .downloadBtn, .homeBtn { width: 100%; }
 }

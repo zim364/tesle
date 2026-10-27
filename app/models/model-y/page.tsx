@@ -42,41 +42,37 @@ export default function ModelYPage() {
   }, []);
 
   if (!model) return null;
-  const slide = SLIDES[currentSlide];
   const currentSpec = SPEC_DATA[activeSpec];
 
   return (
     <div className={styles.page}>
       
-      {/* 01 - MASTER SLIDESHOW HERO */}
+      {/* 01 - HERO */}
       <section className={styles.hero}>
         {SLIDES.map((s, idx) => (
           <img key={s.id} src={s.img} alt={s.name} className={`${styles.heroImage} ${idx === currentSlide ? styles.activeImage : ""}`} />
         ))}
         <div className={styles.heroOverlay} />
         
-        {/* TEXT LAYERS */}
         {SLIDES.map((s, idx) => (
           <div key={s.id} className={`${styles.heroContent} ${idx === currentSlide ? styles.active : ""}`}>
             <h1 className={styles.title}>{s.name}</h1>
             <p className={styles.subtitle}>{s.tagline}</p>
             <p className={styles.heroDesc}>{s.text}</p>
+            
             <div className={styles.actions}>
               <Link href={`/apply?model=model-y`} className={styles.btnPrimary}>Order Now</Link>
               <a href="#specs" className={styles.btnSecondary}>View Specs</a>
             </div>
-          </div>
-        ))}
-
-        {/* STATS LAYERS */}
-        {SLIDES.map((s, idx) => (
-          <div key={`stats-${s.id}`} className={`${styles.statsBar} ${idx === currentSlide ? styles.active : ""}`}>
-            {s.stats.map((stat) => (
-              <div key={stat.label} className={styles.statItem}>
-                <span className={styles.statValue}>{stat.value}</span>
-                <span className={styles.statLabel}>{stat.label}</span>
-              </div>
-            ))}
+            
+            <div className={styles.statsBar}>
+              {s.stats.map((stat) => (
+                <div key={stat.label} className={styles.statItem}>
+                  <span className={styles.statValue}>{stat.value}</span>
+                  <span className={styles.statLabel}>{stat.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
 
@@ -90,78 +86,79 @@ export default function ModelYPage() {
         </div>
       </section>
 
-      {/* 02 - SCULPTED EXTERIOR */}
+      {/* 02 - EVERYTHING YOU WANT (Standard) */}
       <section className={`${styles.editorialSection} ${styles.fadeUp}`}>
-        <div className={styles.mediaFullWidth} style={{ backgroundImage: `url(https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Premium-Exterior-Desktop-NA.jpg)` }} />
+        <div className={styles.videoFullWidth}>
+          <video className={styles.videoPlayer} src="/videos/Model-Y-Standard-Everything-Desktop-NA.webm" autoPlay muted loop playsInline />
+        </div>
         <div className={styles.textContainer}>
-          <p className={styles.eyebrow}>Exterior</p>
-          <h2 className={styles.heading}>Sculpted Exterior</h2>
-          <p className={styles.body}>Every angle of the exterior is designed with precision for aesthetics and aerodynamics. The front fascia features sleek, clean lines for a strong front profile.</p>
-          <div className={styles.featureGrid}>
-            <div><h4>Clean Lines</h4><p>The front fascia features sleek, clean lines for a strong front profile.</p></div>
-            <div><h4>Smooth Ride</h4><p>Suspension, wheels and tires work together to create a smooth drive. Active and passive sound damping insulate the cabin.</p></div>
-            <div><h4>Distinctive Lighting</h4><p>Our single, cross-car lamp is the first indirect reflective body panel taillight of its kind.</p></div>
-          </div>
+          <p className={styles.eyebrow}>Standard</p>
+          <h2 className={styles.heading}>Everything You Want</h2>
+          <p className={styles.body}>For anyone and every drive. The athletically tuned exterior features sharp lines and lean surfaces, a sloped roofline and new aerodynamic alloy wheels for unparalleled efficiency.</p>
         </div>
       </section>
 
       {/* 03 - PREMIUM COMFORT */}
       <section className={`${styles.editorialSection} ${styles.darkTheme} ${styles.fadeUp}`}>
         <div className={styles.videoFullWidth}>
-          <video src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto:best/Model-Y-Premium-Comfort-Desktop-NA.mp4" poster="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Premium-Comfort-Desktop-NA-Poster.jpg" autoPlay muted loop playsInline />
+          <video className={styles.videoPlayer} src="/videos/Model-Y-Premium-Comfort-Desktop-NA.webm" autoPlay muted loop playsInline />
         </div>
         <div className={styles.textContainer}>
-          <p className={styles.eyebrow}>Interior</p>
+          <p className={styles.eyebrow}>Premium</p>
           <h2 className={styles.heading}>Premium Comfort</h2>
           <p className={styles.body}>A spacious cabin seats up to seven comfortably under an all-glass roof. Premium materials, advanced features and wraparound ambient lighting create an immersive cabin environment.</p>
-          <div className={styles.featureGrid}>
-            <div><h4>Comfort From Any Seat</h4><p>Front and rear touchscreens make all your climate and entertainment settings easily accessible. HEPA filtration improves air quality.</p></div>
-            <div><h4>Immersive Soundscape</h4><p>Step inside, close the door and experience the vast silence offered by specially engineered acoustic glass.</p></div>
-            <div><h4>Fully Connected</h4><p>Calls come in clear. Data downloads fast. Doors and trunks unlock when you approach.</p></div>
-          </div>
         </div>
       </section>
 
       {/* 04 - EXPANSIVE STORAGE */}
       <section className={`${styles.editorialSection} ${styles.fadeUp}`}>
         <div className={styles.videoFullWidth}>
-          <video src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto:best/Model-Y-Premium-Storage-Desktop-NA-7-Seater.mp4" poster="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Premium-Storage-Desktop-NA-7-Seater-Poster.jpg" autoPlay muted loop playsInline />
+          <video className={styles.videoPlayer} src="/videos/Model-Y-Premium-Storage-Desktop-NA-7-Seater.webm" autoPlay muted loop playsInline />
         </div>
         <div className={styles.textContainer}>
           <p className={styles.eyebrow}>Utility</p>
           <h2 className={styles.heading}>Expansive Storage</h2>
-          <p className={styles.body}>With 76 cubic feet of storage space, you can fit up to seven plus everything they need to bring along. A hands-free trunk automatically unlocks as you approach so you can easily load bags, groceries, sporting equipment and more.</p>
+          <p className={styles.body}>With 76 cubic feet of storage space, you can fit up to seven plus everything they need to bring along. A hands-free trunk automatically unlocks as you approach.</p>
         </div>
       </section>
 
-      {/* 05 - THE FUTURE OF TRAVEL (Autonomous) */}
+      {/* 05 - MAX ADRENALINE */}
       <section className={`${styles.editorialSection} ${styles.darkTheme} ${styles.fadeUp}`}>
         <div className={styles.videoFullWidth}>
-          <video src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto:best/Model-Y-Premium-Autonomous-Desktop-NA-V2.mp4" poster="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Premium-Autonomous-Desktop-NA-Poster-V2.jpg" autoPlay muted loop playsInline />
+          <video className={styles.videoPlayer} src="/videos/Model-Y-Performance-Adrenaline-Desktop-NA-EU-AU-NZ.webm" autoPlay muted loop playsInline />
+        </div>
+        <div className={styles.textContainer}>
+          <p className={styles.eyebrow}>Performance</p>
+          <h2 className={styles.heading}>Max Adrenaline</h2>
+          <p className={styles.body}>Model Y Performance can adapt to your driving style, speed and road conditions to keep your ride smooth and your pulse elevated.</p>
+        </div>
+      </section>
+
+      {/* 06 - PERFORMANCE INTERIOR */}
+      <section className={`${styles.editorialSection} ${styles.fadeUp}`}>
+        <div className={styles.videoFullWidth}>
+          <video className={styles.videoPlayer} src="/videos/Model-Y-Performance-Interior-Desktop-NA.webm" autoPlay muted loop playsInline />
+        </div>
+        <div className={styles.textContainer}>
+          <p className={styles.eyebrow}>Performance</p>
+          <h2 className={styles.heading}>Handcrafted Interior</h2>
+          <p className={styles.body}>The materials used for the interior of Model Y Performance are handcrafted to make sure every surface and seat is comfortable.</p>
+        </div>
+      </section>
+
+      {/* 07 - AUTONOMOUS */}
+      <section className={`${styles.editorialSection} ${styles.darkTheme} ${styles.fadeUp}`}>
+        <div className={styles.videoFullWidth}>
+          <video className={styles.videoPlayer} src="/videos/Model-Y-Premium-Autonomous-Desktop-NA-V2.webm" autoPlay muted loop playsInline />
         </div>
         <div className={styles.textContainer}>
           <p className={styles.eyebrow}>Autopilot</p>
           <h2 className={styles.heading}>The Future of Travel Is Autonomous</h2>
-          <p className={styles.body}>Equipped with active safety features including Automatic Emergency Braking when obstacles get too close and Lane Departure Avoidance to keep you in your lane. Upgrade to Full Self-Driving (Supervised) to unlock more features.</p>
-          <div className={styles.featureGrid}>
-            <div><h4>Full Self-Driving</h4><p>A suite of advanced driver-assistance features designed to provide more active guidance.</p></div>
-            <div><h4>Front-Facing Cameras</h4><p>Enhanced visibility for greater safety, easier parking and driver-assistance features.</p></div>
-            <div><h4>Blind Spot Monitoring</h4><p>Illuminated warning lights and on-screen visualizations help you safely check your surroundings.</p></div>
-          </div>
+          <p className={styles.body}>Equipped with active safety features including Automatic Emergency Braking when obstacles get too close and Lane Departure Avoidance to keep you in your lane.</p>
         </div>
       </section>
 
-      {/* 06 - SAFETY */}
-      <section className={`${styles.editorialSection} ${styles.fadeUp}`}>
-        <div className={styles.mediaFullWidth} style={{ backgroundImage: `url(https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Premium-Safety-Desktop-NA.jpg)` }} />
-        <div className={styles.textContainer}>
-          <p className={styles.eyebrow}>Safety</p>
-          <h2 className={styles.heading}>Engineered for Your Safety</h2>
-          <p className={styles.body}>Safety at Tesla is paramount. Every Tesla vehicle is designed with impact-absorbing zones, a stiff passenger compartment to minimize intrusion and multiple airbags to help protect occupants. Active safety features can help reduce impact severity or help prevent accidents altogether.</p>
-        </div>
-      </section>
-
-      {/* 07 - SPECS CONFIGURATOR */}
+      {/* 08 - SPECS */}
       <section className={styles.specsSection} id="specs">
         <div className={styles.specsContainer}>
           <div className={styles.specsHeader}>
@@ -171,11 +168,7 @@ export default function ModelYPage() {
 
           <div className={styles.specTabs}>
             {SPEC_DATA.map((spec, idx) => (
-              <button 
-                key={spec.name} 
-                className={`${styles.specTab} ${activeSpec === idx ? styles.activeSpecTab : ""}`}
-                onClick={() => setActiveSpec(idx)}
-              >
+              <button key={spec.name} className={`${styles.specTab} ${activeSpec === idx ? styles.activeSpecTab : ""}`} onClick={() => setActiveSpec(idx)}>
                 {spec.name}
               </button>
             ))}

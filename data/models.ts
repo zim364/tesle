@@ -1,4 +1,5 @@
-// ─── ROADSTER DATA (Used by /models/[slug]/page.tsx) ───
+// ===== ROADSTER DATA (Used by /models/[slug]/page.tsx) =====
+
 export type Model = {
   slug: string;
   name: string;
@@ -27,7 +28,10 @@ export function getModel(slug: string): Model | undefined {
   return models.find((m) => m.slug === slug);
 }
 
-// ─── ACTIVE CAR MODELS DATA ───
+// ===== ACTIVE CAR MODELS DATA =====
+// Trim prices below are US configurator values as of late 2026.
+// Verify at tesla.com/[model]/design before launch.
+
 export type Trim = {
   name: string;
   range: string;
@@ -59,8 +63,8 @@ export const carModels: CarModel[] = [
     tagline: "The quickest car in the world.",
     heroImage: "/roadster/Roadster-02-Pilot-Desktop.avif",
     trims: [
-      { name: "Performance", range: "300 mi", acceleration: "0.81 s", topSpeed: "230+ mph" },
-      { name: "Thrust", range: "300 mi", acceleration: "0.8 s", topSpeed: "250+ mph" },
+      { name: "Performance", range: "300 mi", acceleration: "0.81 s", topSpeed: "230+ mph", price: "$200,000" },
+      { name: "Thrust", range: "300 mi", acceleration: "0.8 s", topSpeed: "250+ mph", price: "$250,000" },
     ],
     sections: [],
     specsList: [],
@@ -72,9 +76,9 @@ export const carModels: CarModel[] = [
     tagline: "Sport Sedan",
     heroImage: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-3-Desktop-LHD-v2.jpg",
     trims: [
-      { name: "Standard", range: "321 mi", acceleration: "5.8 s", price: "$38,990" },
-      { name: "Premium", range: "363 mi", acceleration: "4.2 s" },
-      { name: "Performance", range: "296 mi", acceleration: "2.9 s" },
+      { name: "Standard", range: "321 mi", acceleration: "5.8 s", topSpeed: "RWD", price: "$38,990" },
+      { name: "Premium", range: "363 mi", acceleration: "4.2 s", topSpeed: "RWD", price: "$42,490" },
+      { name: "Performance", range: "296 mi", acceleration: "2.9 s", topSpeed: "AWD", price: "$50,990" },
     ],
     sections: [],
     specsList: [],
@@ -101,9 +105,9 @@ export const carModels: CarModel[] = [
     tagline: "Built for the future.",
     heroImage: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Cybertruck-Hero-Desktop-NA-SA-APAC.png",
     trims: [
-      { name: "Cyberbeast", range: "320 miles", acceleration: "2.6 s", topSpeed: "130 mph" },
-      { name: "Premium AWD", range: "325 miles", acceleration: "4.1 s", topSpeed: "112 mph" },
-      { name: "Dual Motor AWD", range: "325 miles", acceleration: "4.1 s", topSpeed: "112 mph" },
+      { name: "Dual Motor AWD", range: "325 miles", acceleration: "4.1 s", topSpeed: "112 mph", price: "$79,990" },
+      { name: "Premium AWD", range: "325 miles", acceleration: "4.1 s", topSpeed: "112 mph", price: "$89,990" },
+      { name: "Cyberbeast", range: "320 miles", acceleration: "2.6 s", topSpeed: "130 mph", price: "$99,990" },
     ],
     sections: [],
     specsList: [],

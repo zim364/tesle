@@ -195,7 +195,10 @@ export default function CybertruckPage() {
       <section className={styles.specsSection} id="specs">
         <div className={styles.specsContainer}>
           <div className={styles.specsHeader}>
-            <h2 className={styles.specsTitle}>CYBERTRUCK <span>Specs</span></h2>
+            <h2 className={styles.specsTitle}>
+              <img src="/cybertruck/cybertrucklogo.svg" alt="Cybertruck" className={styles.specsLogo} />
+              <span>Specs</span>
+            </h2>
             
             <div className={styles.specsTabs}>
               {model.trims.map((trim, idx) => (
