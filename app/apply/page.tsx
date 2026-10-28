@@ -144,6 +144,24 @@ function ApplyForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const missing: string[] = [];
+    if (!formData.firstName.trim()) missing.push("First Name");
+    if (!formData.lastName.trim()) missing.push("Last Name");
+    if (!formData.email.trim()) missing.push("Email Address");
+    if (!formData.phone.trim()) missing.push("Phone Number");
+    if (!formData.street.trim()) missing.push("Street Address");
+    if (!formData.city.trim()) missing.push("City");
+    if (!formData.state.trim()) missing.push("State");
+    if (!uploadedFiles.id) missing.push("Government-Issued ID");
+    if (!uploadedFiles.insurance) missing.push("Proof of Insurance");
+    if (!uploadedFiles.address) missing.push("Proof of Address");
+
+    if (missing.length > 0) {
+      alert("Please complete the following required fields before submitting:\n\n" + missing.map(m => "  - " + m).join("\n"));
+      return;
+    }
+
     setIsProcessing(true);
     setTimeout(() => {
       setIsProcessing(false);
@@ -503,21 +521,21 @@ function ApplyForm() {
                 <div className={styles.row}>
                   <div className={styles.inputGroup}>
                     <label>First Name <span className={styles.required}>*</span></label>
-                    <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="Enter first name" />
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} placeholder="Enter first name" required />
                   </div>
                   <div className={styles.inputGroup}>
                     <label>Last Name <span className={styles.required}>*</span></label>
-                    <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Enter last name" />
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} placeholder="Enter last name" required />
                   </div>
                 </div>
                 <div className={styles.row}>
                   <div className={styles.inputGroup}>
                     <label>Email Address <span className={styles.required}>*</span></label>
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="name@example.com" />
+                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="name@example.com" required />
                   </div>
                   <div className={styles.inputGroup}>
                     <label>Phone Number <span className={styles.required}>*</span></label>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="(555) 123-4567" />
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="(555) 123-4567" required />
                   </div>
                 </div>
               </div>
@@ -527,10 +545,10 @@ function ApplyForm() {
                 <p className={styles.sectionDesc}>This address must match the billing address on your documents.</p>
                 <div className={styles.inputGroup}>
                   <label>Street Address</label>
-                  <input type="text" name="street" value={formData.street} onChange={handleInputChange} placeholder="123 Main Street" style={{ marginBottom: "16px" }} />
+                  <input type="text" name="street" value={formData.street} onChange={handleInputChange} placeholder="123 Main Street" style={{ marginBottom: "16px" }} required />
                   <div className={styles.addressRow}>
-                    <input type="text" name="city" value={formData.city} onChange={handleInputChange} placeholder="City" />
-                    <input type="text" name="state" value={formData.state} onChange={handleInputChange} placeholder="State" />
+                    <input type="text" name="city" value={formData.city} onChange={handleInputChange} placeholder="City" required />
+                    <input type="text" name="state" value={formData.state} onChange={handleInputChange} placeholder="State" required />
                   </div>
                 </div>
               </div>
@@ -546,7 +564,7 @@ function ApplyForm() {
                     </div>
                     <label className={styles.docBtn + " " + (uploadedFiles.id ? styles.docBtnSuccess : "")}>
                       {uploadedFiles.id ? "Replace" : "Upload"}
-                      <input type="file" onChange={(e) => handleFileUpload(e, "id")} />
+                      <input type="file" onChange={(e) => handleFileUpload(e, "id")} required  />
                     </label>
                   </div>
                   <div className={styles.docUploadRow}>
@@ -556,7 +574,7 @@ function ApplyForm() {
                     </div>
                     <label className={styles.docBtn + " " + (uploadedFiles.insurance ? styles.docBtnSuccess : "")}>
                       {uploadedFiles.insurance ? "Replace" : "Upload"}
-                      <input type="file" onChange={(e) => handleFileUpload(e, "insurance")} />
+                      <input type="file" onChange={(e) => handleFileUpload(e, "insurance")} required  />
                     </label>
                   </div>
                   <div className={styles.docUploadRow}>
@@ -566,7 +584,7 @@ function ApplyForm() {
                     </div>
                     <label className={styles.docBtn + " " + (uploadedFiles.address ? styles.docBtnSuccess : "")}>
                       {uploadedFiles.address ? "Replace" : "Upload"}
-                      <input type="file" onChange={(e) => handleFileUpload(e, "address")} />
+                      <input type="file" onChange={(e) => handleFileUpload(e, "address")} required  />
                     </label>
                   </div>
                 </div>
@@ -574,7 +592,7 @@ function ApplyForm() {
 
               <div className={styles.formSection}>
                 <label className={styles.checkboxGroup}>
-                  <input type="checkbox" />
+                  <input type="checkbox" required />
                   <span>I certify that all information is accurate, and the documents uploaded are authentic and belong to me. <span className={styles.required}>*</span></span>
                 </label>
                 <button type="submit" className={styles.submitBtn}>Submit Application</button>

@@ -168,3 +168,33 @@
   .content { padding: 16px 0; }
   .name { font-size: 24px; }
 }
+
+/* ===== LINEUP MOBILE PADDING ===== */
+@media (max-width: 768px) {
+  .content {
+    padding: 10px 12px 14px;
+  }
+  .specs {
+    padding: 6px 0 0;
+    gap: 8px;
+  }
+  .specItem {
+    padding: 0;
+  }
+  .specLabel {
+    padding-right: 2px;
+  }
+  .specValue {
+    padding-left: 2px;
+  }
+}
+
+@media (max-width: 380px) {
+  .content {
+    padding: 8px 10px 12px;
+  }
+  .specs {
+    padding: 4px 0 0;
+    gap: 6px;
+  }
+}
